@@ -37,22 +37,23 @@
 	</tr>
 <tr><td><br/></td></tr>
 	<tr>
-<#if record.taxtotal = 0> <td align="left">Die Verrechnung erfolgt ohne Umsatzsteuer aufgrund fehlender Unternehmereigenschaft gemäß VereinsR 2001 Rz 463
-unter Bezugnahme auf die Bestimmung des § 2 Abs. 5 Z 2 UStG.</td> </#if>
+<#if record.taxtotal = 0> <td align="left" class="tax-message">Tack för beställningen!<br/>Vid frågor kontakta vårt kontor på tel: 08-60 30 949 eller skicka e-post på office@agapesverige.se</td> </#if>
 	</tr>
 <tr><td><br/></td></tr>
 	<tr>
-    <td align="right"><pagenumber/> of <totalpages/></td>
+    <td align="center" colspan="3">Adress<br/>Agape Sverige<br/>Varpholmsgränd 50<br/>127 46 Skärholmen </td>
 	</tr>
 <tr><td><br/></td></tr>
 	<tr>
-    <td align='center'>+43 (0)1 377 77 77 | office@campusaustria.at | www.campusaustria.at</td>   
+    <td align='center' colspan="3">Tel: 08-60 30 949<br/>Internet:   www.agapesverige.se<br/>e-post: office@agapesverige.se</td>   
 	</tr>
 	
 	<tr>
-    <td align='center'>IBAN: AT51 1509 3003 8100 5222 | BIC: OBKLAT2L | UID-Nr.: ATU36799005 | ZVR: 102634884</td>
+    <td align='center' colspan="3">Bankgiro<br/>5569-1075<br/>Organisationsnr<br/>817601-7401</td>
 	</tr>
-
+	<tr>
+		<td align="right"><pagenumber/> of <totalpages/></td>
+	</tr>
     </table>
     </macro>
     
@@ -152,6 +153,9 @@ unter Bezugnahme auf die Bestimmung des § 2 Abs. 5 Z 2 UStG.</td> </#if>
             background-color: #d3d3d3;
             height: 1px;
         }
+		td.tax-message {
+			border: 1px solid black;
+		}
 </style>
 </head>
 <body header="nlheader" header-height="100pt" footer="nlfooter" footer-height="70pt" padding="0.5in 0.5in 0.5in 0.5in" size="A4">

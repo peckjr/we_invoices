@@ -14,7 +14,7 @@
     <macrolist>
          <macro id="nlheader">
             <table class="header" style="width: 100%;"><tr>
-              <td rowspan="3"><#if subsidiary.logo?length != 0><img dpi="1000" src="${subsidiary.logo@url}" style="float: left; margin: 7px; margin-top:-1pt" /> <#else /> <#if companyInformation.logoUrl?length != 0> <img  src="${companyInformation.logoUrl}" style="float: left; margin: 7px; margin-top:-1pt" /> </#if> </#if> <span class="nameandaddress">${subsidiary.mainaddress_text?replace("Austria", "Österreich")}<#if subsidiary.federalidnumber?has_content><br/>${subsidiary.federalidnumber}</#if></span></td>
+              <td rowspan="3"><#if subsidiary.logo?length != 0><img dpi="1000" src="${subsidiary.logo@url}" style="float: left; margin: 7px; margin-top:-1pt" /> <#else /> <#if companyInformation.logoUrl?length != 0> <img  src="${companyInformation.logoUrl}" style="float: left; margin: 7px; margin-top:-1pt" /> </#if> </#if> <span class="nameandaddress">${subsidiary.name}</span></td>
 	<td align="right"><span class="title">${record@title?replace("Ausgangsrechnung", "Rechnung")}</span></td>
 	</tr>
 	<tr>

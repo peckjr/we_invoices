@@ -29,27 +29,23 @@
     <table class="footer" style="width: 100%;">
  
     <tr>
-    <td align="right">Alle von uns gelieferten Verpackungen sind entpflichtet:</td>    
+    <td align="left" colspan="3">Tack för beställningen!</td>    
 	</tr>
 
 	<tr>
-    <td align="right">Reclay Österreich GmbH, Lizenzpartnernummer 100642</td>   
+    <td align="right" colspan="3">Vid frågor kontakta vårt kontor på tel: 08-60 30 949 eller skicka e-post på office@agapesverige.se</td>   
 	</tr>
 <tr><td><br/></td></tr>
 	<tr>
-<#if record.taxtotal = 0> <td align="left" class="tax-message">Tack för beställningen!<br/>Vid frågor kontakta vårt kontor på tel: 08-60 30 949 eller skicka e-post på office@agapesverige.se</td> </#if>
+<#if record.taxtotal = 0> <td align="left" colspan="3" class="tax-message">Tack för beställningen!<br/>Vid frågor kontakta vårt kontor på tel: 08-60 30 949 eller skicka e-post på office@agapesverige.se</td> </#if>
 	</tr>
 <tr><td><br/></td></tr>
 	<tr>
-    <td align="center" colspan="3">Adress<br/>Agape Sverige<br/>Varpholmsgränd 50<br/>127 46 Skärholmen </td>
-	</tr>
-<tr><td><br/></td></tr>
-	<tr>
-    <td align='center' colspan="3">Tel: 08-60 30 949<br/>Internet:   www.agapesverige.se<br/>e-post: office@agapesverige.se</td>   
-	</tr>
+    <td align="center">Adress<br/>Agape Sverige<br/>Varpholmsgränd 50<br/>127 46 Skärholmen </td>
 	
-	<tr>
-    <td align='center' colspan="3">Bankgiro<br/>5569-1075<br/>Organisationsnr<br/>817601-7401</td>
+    <td align="center">Tel: 08-60 30 949<br/>Internet:   www.agapesverige.se<br/>e-post: office@agapesverige.se</td>   
+	
+    <td align="center">Bankgiro<br/>5569-1075<br/>Organisationsnr<br/>817601-7401</td>
 	</tr>
 	<tr>
 		<td align="right"><pagenumber/> of <totalpages/></td>
@@ -98,9 +94,11 @@
             padding: 0px;
             font-size: 10pt;
         }
+		
         table.footer td {
             padding: 0px;
             font-size: 10pt;
+		
         }
         table.itemtable th {
             padding-bottom: 10px;

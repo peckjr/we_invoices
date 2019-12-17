@@ -26,29 +26,26 @@
     </macro>
     
     <macro id="nlfooter">
-    <table class="footer" style="width: 100%;">
- 
+    <table class="footer" style="width:100%;">
+	
     <tr>
-    <td align="left" colspan="3">Tack för beställningen!</td>    
+    <td align="left" colspan="4">Tack för beställningen!</td>    
 	</tr>
-
 	<tr>
-    <td align="right" colspan="3">Vid frågor kontakta vårt kontor på tel: 08-60 30 949 eller skicka e-post på office@agapesverige.se</td>   
-	</tr>
-<tr><td><br/></td></tr>
-	<tr>
-<#if record.taxtotal = 0> <td align="left" colspan="3" class="tax-message">Tack för beställningen!<br/>Vid frågor kontakta vårt kontor på tel: 08-60 30 949 eller skicka e-post på office@agapesverige.se</td> </#if>
+    <td align="right" colspan="4">Vid frågor kontakta vårt kontor på tel: 08-60 30 949 eller skicka e-post på office@agapesverige.se</td>   
 	</tr>
 <tr><td><br/></td></tr>
 	<tr>
-    <td align="center">Adress<br/>Agape Sverige<br/>Varpholmsgränd 50<br/>127 46 Skärholmen </td>
-	
-    <td align="center">Tel: 08-60 30 949<br/>Internet:   www.agapesverige.se<br/>e-post: office@agapesverige.se</td>   
-	
-    <td align="center">Bankgiro<br/>5569-1075<br/>Organisationsnr<br/>817601-7401</td>
+<#if record.taxtotal = 0> <td align="left" colspan="4" class="tax-message">Message for no tax goes here.</td> </#if>
 	</tr>
+<tr><td><br/></td></tr>
 	<tr>
-		<td align="right"><pagenumber/> of <totalpages/></td>
+    <td>Adress<br/>Agape Sverige<br/>Varpholmsgränd 50<br/>127 46 Skärholmen </td>
+	
+    <td>Tel: 08-60 30 949<br/>Internet: www.agapesverige.se<br/>e-post: office@agapesverige.se</td>   
+	
+	<td align="right">Bankgiro<br/>5569-1075<br/>Organisationsnr<br/>817601-7401</td>
+	<td align="right" style="vertical-align: bottom;"><pagenumber/> of <totalpages/></td>
 	</tr>
     </table>
     </macro>
@@ -98,6 +95,7 @@
         table.footer td {
             padding: 0px;
             font-size: 10pt;
+			white-space:nowrap;
 		
         }
         table.itemtable th {

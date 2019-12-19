@@ -193,7 +193,8 @@ unter Bezugnahme auf die Bestimmung des § 2 Abs. 5 Z 2 UStG.</td> </#if>
 	<th colspan="8">${item.item@label}</th>
 	<th colspan="3">${item.options@label}</th>
 	<th align="right" colspan="4">${item.rate@label}</th>
-	<th align="right" colspan="3">${item.taxrate1@label?replace("Tax Rate", "VAT")?replace("Steuersatz", "USt.")}</th>	
+    <th align="right" colspan="3">${item.taxrate1@label?replace("Tax Rate", "VAT")?replace("Steuersatz", "USt.")}</th>
+    <th align="right" colspan="3">x${item.tax1amt@label}</th>	
 	<th align="right" colspan="4">${item.amount@label}</th>
 	</tr>
 </thead>
@@ -203,6 +204,7 @@ unter Bezugnahme auf die Bestimmung des § 2 Abs. 5 Z 2 UStG.</td> </#if>
 	<td colspan="3">${item.options}</td>
 	<td align="right" colspan="4">${item.rate}</td>
     <td align="right" colspan="3">${item.taxrate1}</td>
+    <td align="right" colspan="3">x${item.tax1amt}</td>
 	<td align="right" colspan="4">${item.amount}</td>
 	</tr>
 	</#list><!-- end items --></table>

@@ -18,10 +18,12 @@
 	<td align="right"><span class="title">${record@title?replace("Ausgangsrechnung", "Rechnung")}</span></td>
 	</tr>
 	<tr>
-	<td align="justify">Nr. <span class="number">${record.tranid}</span></td>
+        <td align="right">Nr. </td>
+	<td align="right"><span class="number">${record.tranid}</span></td>
 	</tr>
 	<tr>
-	<td align="justify">Rechnungsdatum ${record.trandate}</td>
+        <td align="right">Rechnungsdatum </td>
+	<td align="right">${record.trandate}</td>
 	</tr></table>
     </macro>
     

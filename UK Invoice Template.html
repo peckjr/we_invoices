@@ -15,7 +15,7 @@
          <macro id="nlheader">
             <table class="header" style="width: 100%;"><tr>
               <td rowspan="3"><#if subsidiary.logo?length != 0><img dpi="1000" src="${subsidiary.logo@url}" style="float: left; margin: 7px; margin-top:-1pt" /> <#else /> <#if companyInformation.logoUrl?length != 0> <img  src="${companyInformation.logoUrl}" style="float: left; margin: 7px; margin-top:-1pt" /> </#if> </#if> <span class="nameandaddress">${subsidiary.mainaddress_text?replace("Austria", "Österreich")}<#if subsidiary.federalidnumber?has_content><br/>${subsidiary.federalidnumber}</#if></span></td>
-	<td align="right"><span class="title">${record@title?replace("Ausgangsrechnung", "Rechnung")}</span></td>
+	<td align="right"><span class="title">${record@title}</span></td>
 	</tr>
 	<tr>
 	<td align="right"><span class="number">${record.tranid}</span></td>
@@ -29,16 +29,15 @@
     <table class="footer" style="width: 100%;">
  
     <tr>
-    <td align="right">Alle von uns gelieferten Verpackungen sind entpflichtet:</td>    
+    <td align="right">Agapé is a registered charity in England & Wales (no. 258421) and Scotland (no. SC042332).</td>    
 	</tr>
 
 	<tr>
-    <td align="right">Reclay Österreich GmbH, Lizenzpartnernummer 100642</td>   
+    <td align="right">Registered in England No 949989. VAT No 200 1787 10.</td>   
 	</tr>
 <tr><td><br/></td></tr>
 	<tr>
-<#if record.taxtotal = 0> <td align="left">Die Verrechnung erfolgt ohne Umsatzsteuer aufgrund fehlender Unternehmereigenschaft gemäß VereinsR 2001 Rz 463
-unter Bezugnahme auf die Bestimmung des § 2 Abs. 5 Z 2 UStG.</td> </#if>
+<#if record.taxtotal = 0> <td align="left">No tax message.</td> </#if>
 	</tr>
 <tr><td><br/></td></tr>
 	<tr>

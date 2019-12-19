@@ -28,11 +28,9 @@
     <macro id="nlfooter">
     <table class="footer" style="width:100%;">
     <tr>
-    <td align="left" colspan="4">Tack för beställningen!</td>    
+    <td align="left" colspan="4" class="footer-message">Tack för beställningen!<br/>Vid frågor kontakta vårt kontor på tel: 08-60 30 949 eller skicka e-post på office@agapesverige.se</td>    
 	</tr>
-	<tr>
-    <td align="right" colspan="4">Vid frågor kontakta vårt kontor på tel: 08-60 30 949 eller skicka e-post på office@agapesverige.se</td>   
-	</tr>
+	
 <tr><td><br/></td></tr>
 	<tr>
 <#if record.taxtotal = 0> <td align="left" colspan="4" class="tax-message">Message for no tax goes here.</td> </#if>
@@ -148,24 +146,27 @@
             background-color: #d3d3d3;
             height: 1px;
         }
-		td.tax-message {
+		td.footer-message {
 			border: 1px solid black;
+			padding: 3px 3px 3px;
+
 		}
+		
 </style>
 </head>
 <body header="nlheader" header-height="100pt" footer="nlfooter" footer-height="70pt" padding="0.5in 0.5in 0.5in 0.5in" size="A4">
-   <table style="width:100%; padding-top: 20px; padding-left: 20pt">
+   <table style="width:100%; padding-top: 20px;">
    <tr>
-	<td class="totalboxtop" colspan="5"><b>${record.total@label?upper_case}</b></td>
+	<td class="totalboxtop" colspan="3"><b>${record.total@label?upper_case}</b></td>
+	<td colspan="2"> </td>
 	<td class="addressheader" colspan="4"><b>${record.billaddress@label}</b></td>
 	</tr>
 	<tr>
-	<td align="left" class="totalboxmid" colspan="5">${record.total}</td>
-	<td class="address" colspan="4" rowspan="2">${record.billaddress?replace("Austria", "Österreich")}</td>
+	<td align="left" class="totalboxmid" colspan="3">${record.total}</td>
+	<td colspan="2"> </td>
+	<td class="address" colspan="4" rowspan="4">${record.billaddress?replace("Austria", "Österreich")}</td>
 	</tr>
-	<tr>
-	<td align="left" class="totalboxbot" colspan="5"><b>${record.duedate@label}:</b> ${record.duedate}</td>
-	</tr></table>
+	</table>
 
 <table class="body" style="width: 100%; padding-top: 20px; margin-top: 10px;"><tr>
 	<th>${record.terms@label}</th>
@@ -178,7 +179,7 @@
 	<td>${record.otherrefnum}</td>
 	</tr></table>
 	<table class="body" style="width: 100%; padding-top: 0px; margin-top: 10px;"><tr>
-		<th>${record.carrier@label}</th>
+		<th>Carrier${record.carrier@label}</th>
 		<th>${record.shipdate@label}</th>
 		<th>${record.salesrep@label}</th>
 		</tr>

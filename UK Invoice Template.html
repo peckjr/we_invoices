@@ -13,47 +13,43 @@
 	</#if>
     <macrolist>
          <macro id="nlheader">
-            <table class="header" style="width: 100%;"><tr>
-              <td rowspan="3"><#if subsidiary.logo?length != 0><img dpi="1000" src="${subsidiary.logo@url}" style="float: left; margin: 7px; margin-top:-1pt" /> <#else /> <#if companyInformation.logoUrl?length != 0> <img  src="${companyInformation.logoUrl}" style="float: left; margin: 7px; margin-top:-1pt" /> </#if> </#if> <span class="nameandaddress">${subsidiary.mainaddress_text?replace("Austria", "Österreich")}<#if subsidiary.federalidnumber?has_content><br/>${subsidiary.federalidnumber}</#if></span></td>
-	<td align="right"><span class="title">${record@title}</span></td>
-	</tr>
-	<tr>
-	<td align="right"><span class="number">${record.tranid}</span></td>
-	</tr>
-	<tr>
-	<td align="right">${record.trandate}</td>
-	</tr></table>
-    </macro>
+			<table class="header" style="width: 100%;">
+				<tr><td rowspan="3"><#if subsidiary.logo?length != 0><img dpi="1000" src="${subsidiary.logo@url}" style="float: left; margin: 7px; margin-top:-1pt" /> <#else /> <#if companyInformation.logoUrl?length != 0> <img  src="${companyInformation.logoUrl}" style="float: left; margin: 7px; margin-top:-1pt" /> </#if> </#if> <span class="nameandaddress">${subsidiary.mainaddress_text?replace("Austria", "Österreich")}<#if subsidiary.federalidnumber?has_content><br/>${subsidiary.federalidnumber}</#if></span></td>
+				<td align="right"><span class="title">${record@title}</span></td>
+				</tr>
+				<tr>
+				<td align="right"><span class="number">${record.tranid}</span></td>
+				</tr>
+				<tr>
+				<td align="right">${record.trandate}</td>
+				</tr></table>
+    	</macro>
     
-    <macro id="nlfooter">
-    <table class="footer" style="width: 100%;">
+    	<macro id="nlfooter">
+    		<table class="footer" style="width: 100%;">
  
-    <tr>
-    <td align="right">Agapé is a registered charity in England & Wales (no. 258421) and Scotland (no. SC042332).</td>    
-	</tr>
+    		<tr>
+    		<td align="right">Agapé is a registered charity in England & Wales (no. 258421) and Scotland (no. SC042332).</td>    
+			</tr>
 
-	<tr>
-    <td align="right">Registered in England No 949989. VAT No 200 1787 10.</td>   
-	</tr>
-<tr><td><br/></td></tr>
-	<tr>
-<#if record.taxtotal = 0> <td align="left">No tax message.</td> </#if>
-	</tr>
-<tr><td><br/></td></tr>
-	<tr>
-    <td align="right"><pagenumber/> of <totalpages/></td>
-	</tr>
-<tr><td><br/></td></tr>
-	<tr>
-    <td align='center'>+43 (0)1 377 77 77 | office@campusaustria.at | www.campusaustria.at</td>   
-	</tr>
-	
-	<tr>
-    <td align='center'>IBAN: AT51 1509 3003 8100 5222 | BIC: OBKLAT2L | UID-Nr.: ATU36799005 | ZVR: 102634884</td>
-	</tr>
+			<tr>
+    		<td align="right">Registered in England No 949989. VAT No 200 1787 10.</td>   
+			</tr>
+			<tr><td><br/></td></tr>
+			<tr><td><br/></td></tr>
+			<tr>
+    		<td align="right"><pagenumber/> of <totalpages/></td>
+			</tr>
+			<tr><td><br/></td></tr>
+			<tr>
+    		<td align='center'>+43 (0)1 377 77 77 | office@campusaustria.at | www.campusaustria.at</td>   
+			</tr>
+			<tr>
+    		<td align='center'>IBAN: AT51 1509 3003 8100 5222 | BIC: OBKLAT2L | UID-Nr.: ATU36799005 | ZVR: 102634884</td>
+			</tr>
 
-    </table>
-    </macro>
+    		</table>
+    	</macro>
     
     </macrolist>
 

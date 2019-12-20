@@ -31,21 +31,18 @@
     <table class="footer" style="width: 100%;">
  
     <tr>
-    <td align="right">Alle von uns gelieferten Verpackungen sind entpflichtet:</td>    
+    <td align="right" >Alle von uns gelieferten Verpackungen sind entpflichtet:</td>    
 	</tr>
-
 	<tr>
-    <td align="right">Reclay Österreich GmbH, Lizenzpartnernummer 100642</td>   
+    <td align="right" >Reclay Österreich GmbH, Lizenzpartnernummer 100642</td>   
 	</tr>
 <tr><td><br/></td></tr>
 	<tr>
-<#if record.taxtotal = 0> <td align="left">Die Verrechnung erfolgt ohne Umsatzsteuer aufgrund fehlender Unternehmereigenschaft gemäß VereinsR 2001 Rz 463
+<#if record.taxtotal = 0> <td align="left" >Die Verrechnung erfolgt ohne Umsatzsteuer aufgrund fehlender Unternehmereigenschaft gemäß VereinsR 2001 Rz 463
 unter Bezugnahme auf die Bestimmung des § 2 Abs. 5 Z 2 UStG.</td> </#if>
 	</tr>
-<tr><td><br/></td></tr>
-	<tr>
-    <td align="right"><pagenumber/> of <totalpages/></td>
-	</tr>
+<tr><td><br />Rechnungsdatum=Leistungsdatum - falls nicht anders angegeben &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <pagenumber/> of <totalpages/></td></tr>
+	
 <tr><td><br/></td></tr>
 	<tr>
     <td align='center'>+43 (0)1 377 77 77 | office@campusaustria.at | www.campusaustria.at</td>   
@@ -168,9 +165,7 @@ unter Bezugnahme auf die Bestimmung des § 2 Abs. 5 Z 2 UStG.</td> </#if>
     <td class="address" colspan="4" rowspan="2">${record.shipaddress?replace("Austria", "Österreich")}</td>
 	<td align="right" class="totalboxmid" colspan="5">${record.total}</td>
 	</tr>
-	<tr>
-	<td align="right" class="totalboxbot" colspan="5"><b>${record.duedate@label}:</b> ${record.duedate}</td>
-	</tr></table>
+	</table>
 
 <table class="body" style="width: 100%; padding-top: 20px; margin-top: 10px;"><tr>
 	<th>${record.terms@label}</th>

@@ -13,37 +13,39 @@
 	</#if>
 	<style type="text/css">
 		table {
-			font-size: 11pt;
+			font-size: 10pt;
 			margin-bottom: 10px;
 			table-layout: fixed;
 			width: 100%;
 			padding: 3pt;
 			line-height: 120%;
 		}
-		/*table, th, td {
-		    border: 1px solid;
-		}*/
-		table.invoiceinfo {
-			background-color: #e3e3e3;
-		}
 
 		td {
             padding: 3px;
         }
-        td.headeraddress {
-        	padding: 10pt 0pt 0pt 40pt;
-        }
         td.title {
-        	font-size: 24pt;
+        	font-size: 20pt;
+            vertical-align: middle;
         }
 
         img.headerLogo {
-            height: 40%;
-            width: 40%;
+            height: 30%;
+            width: 30%;
             dpi: 1000;
         }
-        #bold {
+
+        .graybox {
+            background-color: #e3e3e3;
+        }
+        .bold {
             font-weight: bold;
+        }
+        .small {
+            font-size: 8pt;
+        }
+        .right {
+            align: right;
         }
     </style>
 
@@ -61,34 +63,38 @@
 					</td>
 				</tr>
 			</table>
-			<table class="invoiceinfo">
+			<table class="graybox">
 				<tr>
-					<td class="title" id="bold" rowspan="2" width="35%">${record@title}</td>
-					<td id="bold" width="20%">${record.tranid@label} : </td>
-					<td id="bold" width="20%">${record.trandate@label} : </td>
-					<td id="bold" width="25%">Référence : </td>
+                    <td class="title bold" rowspan="2" width="50%">${record@title?replace(" de vente", "")}</td>
+                    <td class="bold" width="25%">${record.tranid@label?replace(" de vente", "")}</td>
+					<td class="bold" width="25%">${record.trandate@label}</td>
 				</tr>
 				<tr>
-					<td class="number">${record.tranid}</td>
+					<td>${record.tranid}</td>
 					<td>${record.trandate}</td>
-					<td>I don't know what this is</td>
 				</tr>
 			</table>
 		</macro>
 		<macro id="nlfooter">
-			<table class="footer">
+			<table class="small graybox">
 				<tr>
-					<td >Merci de joindre ces informations à votre règlement : </td>
-					<td>${record.entity@label} : {record.entity}</td>
-					<td>${record.tranid@label} : {tranid.entity}</td>
-					<td>${record.trandate@label} : ${record.trandate}</td>
+					<td class="bold" width="45%">Merci de joindre ces informations à votre règlement : </td>
+					<td class="bold" width="30%">${record.entity@label?replace(" : projet", "")}</td>
+                    <td class="bold" width="15%">${record.tranid@label?replace(" de vente", "")}</td>
+					<td class="bold" width="15%">${record.trandate@label}</td>
 				</tr>
-			    <tr>
-					<td >Page <pagenumber/> de <totalpages/></td>
-				</tr>
-				<tr>
-					<td align="center"><span class="payment">${subsidiary.custrecord_ccc_invoice_bank_account}</span></td>
-				</tr>
+                <tr>
+                    <td></td>
+                    <td>${record.entity}</td>
+                    <td>${record.tranid}</td>
+                    <td>${record.trandate}</td>
+                </tr>
+            </table>
+            <table class="small">
+                <tr>
+                    <td>Page <pagenumber /> de <totalpages /></td>
+                    <td>This is bank information${subsidiary.custrecord_ccc_invoice_bank_account}</td>
+                </tr>
 			</table>
         </macro>
     </macrolist>
@@ -107,82 +113,19 @@
 			font-family: NotoSans, sans-serif;
 		</#if>
 		}
-		table {
-			font-size: 9pt;
-			table-layout: fixed;
-		}
-        th {
-            font-weight: bold;
-            font-size: 8pt;
-            vertical-align: middle;
-            padding: 5px 6px 3px;
-            background-color: #e3e3e3;
-            color: #333333;
+
+
+        table.totaladdress {
+            padding: 0pt;
         }
-        td {
-            padding: 4px 6px;
-        }
-		td p { align:left }
-        b {
-            font-weight: bold;
-            color: #333333;
-        }
-        table.header td {
-            padding: 0px;
-            font-size: 10pt;
-        }
-        table.footer td {
-            padding: 0px;
-            font-size: 8pt;
-        }
-        table.itemtable th {
-            padding-bottom: 10px;
-            padding-top: 10px;
-        }
-        table.body td {
-            padding-top: 2px;
-        }
-        table.total {
-            page-break-inside: avoid;
-        }
-        tr.totalrow {
-            background-color: #e3e3e3;
-            line-height: 200%;
-        }
-        td.totalboxtop {
-            font-size: 12pt;
-            background-color: #e3e3e3;
-        }
-        td.addressheader {
-            font-size: 8pt;
-            padding-top: 6px;
-            padding-bottom: 2px;
-        }
-        td.address {
-            padding-top: 0px;
+        table.totalbox {
+            margin-right: 10px;
         }
         td.totalboxmid {
             font-size: 16pt;
             padding-top: 20px;
-            background-color: #e3e3e3;
         }
-        td.totalboxbot {
-            background-color: #e3e3e3;
-            font-weight: bold;
-        }
-        span.payment {
-        	font-size: 12pt;
-        }
-        span.title {
-            font-size: 18pt;
-        }
-        span.number {
-            font-size: 16pt;
-        }
-        span.itemname {
-            font-weight: bold;
-            line-height: 150%;
-        }
+       
         hr {
             width: 100%;
             color: #d3d3d3;
@@ -191,69 +134,94 @@
         }
 </style>
 </head>
-<body header="nlheader" header-height="200pt" footer="nlfooter" footer-height="20pt" padding="0.5in 0.5in 0.5in 0.5in" size="A4">
-   <table style="width:100%; padding-top: 20px; padding-left: 20pt">
-   <tr>
-	<td class="addressheader" colspan="4"><b>${record.billaddress@label}</b></td>
-	<td class="totalboxtop" colspan="5"><b>${record.total@label?upper_case}</b></td>
-	</tr>
-	<tr>
-	<td class="address" colspan="4" rowspan="2">${record.billaddress}</td>
-	<td align="right" class="totalboxmid" colspan="5">${record.total}</td>
-	</tr>
-	<tr>
-	<td align="right" class="totalboxbot" colspan="5"><b>${record.duedate@label}:</b> ${record.duedate}</td>
-	</tr></table>
 
-<table class="body" style="width: 100%; padding-top: 20px; margin-top: 10px;"><tr>
-	<th>${record.terms@label}</th>
-	<th>${record.duedate@label}</th>
-	<th>${record.otherrefnum@label}</th>
-	<th>${record.shipmethod@label}</th>
-	</tr>
-	<tr>
-	<td>${record.terms}</td>
-	<td>${record.duedate}</td>
-	<td>${record.otherrefnum}</td>
-	<td>${record.shipmethod}</td>
-	</tr></table>
-<#if record.item?has_content>
+<body header="nlheader" header-height="175pt" footer="nlfooter" footer-height="30pt" size="A4">
+   <table class="totaladdress">
+       <tr>
+           <td width="50%">
+               <table class="graybox totalbox">
+                   <tr>
+                       <td class="bold">${record.total@label?upper_case}</td>
+                   </tr>
+                   <tr>
+                       <td class="bold totalboxmid">${record.total}</td>
+                   </tr>
+                   <tr>
+                       <td class="bold">${record.duedate@label} : ${record.duedate}</td>
+                   </tr>
+               </table>
+            </td>
+           <td width="50%">
+               <table>
+                   <tr>
+                       <td class="small">${record.billaddress@label} : </td>
+                   </tr>
+                   <tr>
+                       <td>${record.billaddress}</td>
+                   </tr>
+               </table>
+           </td>
+       </tr>
+   </table>
 
-<table class="itemtable" style="width: 100%; margin-top: 10px;"><!-- start items --><#list record.item as item><#if item_index==0>
-<thead>
-	<tr>
-	<th align="center" colspan="4">${item.quantity@label}</th>
-	<th colspan="8">${item.item@label}</th>
-	<th colspan="3">${item.options@label}</th>
-	<th align="right" colspan="4">${item.rate@label}</th>
-	<th align="right" colspan="3">${item.taxrate1@label}</th>
-	<th align="right" colspan="4">${item.amount@label}</th>
-	</tr>
-</thead>
-</#if><tr>
-	<td align="center" colspan="4" line-height="150%">${item.quantity}</td>
-	<td colspan="8"><span class="itemname">${item.item}</span><br />${item.description}</td>
-	<td colspan="3">${item.options}</td>
-	<td align="right" colspan="4">${item.rate}</td>
-    <td align="right" colspan="3">${item.taxrate1}</td>
-	<td align="right" colspan="4">${item.amount}</td>
-	</tr>
-	</#list><!-- end items --></table>
+    <table>
+        <tr class="bold graybox">
+	        <td>${record.terms@label}</td>
+	        <td>${record.duedate@label}</td>
+	        <td>${record.otherrefnum@label}</td>
+	        <td>${record.shipmethod@label}</td>
+	    </tr>
+	    <tr>
+	        <td>${record.terms}</td>
+	        <td>${record.duedate}</td>
+	        <td>${record.otherrefnum}</td>
+	        <td>${record.shipmethod}</td>
+	    </tr>
+    </table>
 
-<hr /></#if>
-<table class="total" style="width: 100%; margin-top: 10px;"><tr>
-	<td colspan="3">&nbsp;</td>
-	<td align="right"><b>${record.subtotal@label}</b></td>
-	<td align="right">${record.subtotal}</td>
-	</tr>
-	<tr>
-	<td colspan="3">&nbsp;</td>
-	<td align="right"><b>${record.taxtotal@label}&nbsp;${record.taxrate}</b></td>
-	<td align="right">${record.taxtotal}</td>
-	</tr>
-	<tr class="totalrow">
-	<td background-color="#ffffff" colspan="3">&nbsp;</td>
-	<td align="right"><b>${record.total@label}</b></td>
-	<td align="right">${record.total}</td>
-	</tr></table>
+    <#if record.item?has_content>
+        <table><!-- start items -->
+            <#list record.item as item>
+            <#if item_index==0>
+                <thead>
+                    <tr class="bold graybox">
+	                    <td width="15%">${item.quantity@label}</td>
+	                    <td width="25%">${item.item@label}</td>
+	                    <td width="15%">${item.options@label}</td>
+	                    <td width="15%">${item.rate@label}</td>
+	                    <td width="15%">TVA</td>
+	                    <td width="15%">${item.amount@label} HT</td>
+	                </tr>
+                </thead>
+            </#if>
+                <tr>
+	                <td>${item.quantity}</td>
+	                <td>${item.item}<br />${item.description}</td>
+	                <td>${item.options}</td>
+	                <td>${item.rate}</td>
+                    <td>${item.taxrate1}</td>
+	                <td>${item.amount}</td>
+	            </tr>
+	        </#list><!-- end items -->
+        </table>
+        <hr />
+    </#if>
+
+    <table>
+        <tr>
+	        <td width="50%">&nbsp;</td>
+            <td class="bold">Total&nbsp;HT</td>
+	        <td class="right">${record.subtotal}</td>
+	    </tr>
+	    <tr>
+	        <td>&nbsp;</td>
+	        <td class="bold">TVA&nbsp;${record.taxrate}</td>
+	        <td class="right">${record.taxtotal}</td>
+	    </tr>
+	    <tr>
+	        <td>&nbsp;</td>
+            <td class="bold graybox">${record.total@label}&nbsp;TTC</td>
+	        <td class="right graybox">${record.total}</td>
+	    </tr>
+    </table>
 </body>
